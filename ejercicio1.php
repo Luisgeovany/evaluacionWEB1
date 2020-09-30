@@ -47,7 +47,7 @@
             
                     <div class="col-12">
                         <p>Elija la operacion:</p>
-                        <select name="opciones">
+                        <select class="selected"name="opciones">
                             <option selected>Operaciones</option>
                             <option value="1">Sumar</option>
                             <option value="2">Restar</option>
@@ -63,43 +63,45 @@
 
                         
 
-                    <?php
+                    <?php if(isset($_POST["botonCalcular"])):?>
+                        <p class="display">
+                            <?php
+                                  $numero1=$_POST["numero1"];
+                                  $numero2=$_POST["numero2"];
+                                  $opciones=$_POST["opciones"];
+                                  $suma;
+                                  $resta;
+                                  $multiplicacion;
+                                  $division;
+      
+                              switch($opciones){
+                                  case 1:
+                                      $suma=$numero1+$numero2;
+                                 echo($numero1 ." + " .$numero2 ." = " .$suma);
+                                  break;
+                                  case 2:
+                                      $resta=$numero1-$numero2;
+                                      echo($numero1 ." - " .$numero2 ." = " .$resta);
+                                  break;
+                                  case 3:
+                                      $multiplicacion=$numero1*$numero2;
+                                      echo($numero1 ." x " .$numero2 ." = "  .$multiplicacion);
+                                  break;
+                                  case 4:
+                                      $division=$numero1/$numero2;
+                                      if($numero2 != 0){
+                                        echo($numero1 ." / " .$numero2 ." = " .$division);
+                                      }else{
+                                          echo("no se puede hacer la division");
+                                      }
+                                  break;
+      
+                              }
+                            ?>
+                        </p>
 
-                        if(isset($_POST["botonCalcular"])){
-
-                            $numero1=$_POST["numero1"];
-                            $numero2=$_POST["numero2"];
-                            $opciones=$_POST["opciones"];
-                            $suma;
-                            $resta;
-                            $multiplicacion;
-                            $division;
-
-                        switch($opciones){
-                            case 1:
-                                $suma=$numero1+$numero2;
-                           echo("La suma es: " .$suma);
-                            break;
-                            case 2:
-                                $resta=$numero1-$numero2;
-                                echo("La resta es: " .$resta);
-                            break;
-                            case 3:
-                                $multiplicacion=$numero1*$numero2;
-                                echo("La multiplicacion es: " .$multiplicacion);
-                            break;
-                            case 4:
-                                $division=$numero1/$numero2;
-                                if($numero2 != 0){
-                                echo("La division es: " .$division);
-                                }else{
-                                    echo("no se puede hacer la division");
-                                }
-                            break;
-
-                        }
-                    }   
-                   ?>
+                    
+                   <?php endif ?>
         </div>
     </div>
 </main>

@@ -74,36 +74,36 @@
                     if($paresZapatos==3){
                         $descuento=($total*10)/100;
                         $totalPagar=$total-$descuento;
-                        echo("El total de su compra es -------: " .$total);
+                        echo(" Total de su compra: " .$total);
                         echo("<br>");
-                        echo("Tiene un descuento del 10% -----:" .$descuento);
+                        echo(" Descuento del 10%: " .$descuento);
                         echo("<br>");
-                        echo("Total a pagar: " .$totalPagar);
+                        echo(" Total a pagar: " .$totalPagar);
 
                     }else if($paresZapatos>3 && $paresZapatos<=8){
                         $descuento=($total*20)/100;
                         $totalPagar=$total-$descuento;
-                        echo("El total de su compra es -------: " .$total);
+                        echo(" Total de su compra: " .$total);
                         echo("<br>");
-                        echo("Tiene un descuento del 10% -----:" .$descuento);
+                        echo(" Descuento del 20%: " .$descuento);
                         echo("<br>");
-                        echo("Total a pagar: " .$totalPagar);
+                        echo(" Total a pagar: " .$totalPagar);
 
                     }else if($paresZapatos>8){
                         $descuento=($total*50)/100;
                         $totalPagar=$total-$descuento;
-                        echo("El total de su compra es -------: " .$total);
+                        echo(" Total de su compra: " .$total);
                         echo("<br>");
-                        echo("Tiene un descuento del 50% -----:" .$descuento);
+                        echo("Descuento del 50%: " .$descuento);
                         echo("<br>");
-                        echo("Total a pagar: " .$totalPagar);
+                        echo(" Total a pagar: " .$totalPagar);
                     }else if ($paresZapatos<3){
                         $total=$paresZapatos*$precioZapatos;
                         $descuento=0;
 
-                        echo("El total de su compra es -------: " .$total );
+                        echo("El total de su compra es: " .$total );
                         echo("<br>");
-                        echo("      No tiene descuento ");
+                        echo(" NO TIENE DESCUENTO ");
                         echo("<br>");
                         echo("Total a pagar: " .$total);
                     }

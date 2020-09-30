@@ -4,37 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-   
+    <link rel="stylesheet" href="estilos/estilos4.css">
     <title>Sueldo semanal</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">EVALUACION WEB 1</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="ejercicio1.php">Ejercicio1<span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ejercicio2.php">Ejercicio2</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ejercicio3.php">Ejercicio3</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ejercicio4.php">Ejercicio4</a>
-                    </li>
-                </ul>
-                
-            </div>
-        </nav>
+  <a class="navbar-brand" href="#">EVALUACION WEB 1</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">EJERCICIOS</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="ejercicio1.php">Ejercicio 1</a>
+          <a class="dropdown-item" href="ejercicio2.php">Ejercicio 2</a>
+          <a class="dropdown-item" href="ejercicio3.php">Ejercicio 3</a>
+          <a class="dropdown-item" href="ejercicio4.php">Ejercicio 4</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
     <header>
         <h2>Calcular Salario semanal</h2>
-        <h3>Ingrese la siguiente informacion:</h3>
+        
     </header>
     <main>
     <form class="form mt-4" action="ejercicio4.php" method="POST">
@@ -56,23 +51,31 @@
 
 
         <?php
-            if(isset($_POST["botonCalcular"])){
-                $horas=$_POST["horaSemana"];
-                $valorHora=20000;
-                $salario;
-               
+            if(isset($_POST["botonCalcular"])):?>
+                <p class="display">
+                    <?php
+                    $horas=$_POST["horaSemana"];
+                    $valorHora=20000;
+                    $salario;
+                   
+    
+                    if($horas<=40){
+                        $salario=$horas*$valorHora;
+                        echo("Su salario es: " .$salario);
+    
+                    }else if($horas>40){
+                        $salario=40*$valorHora;
+                        $salario=$salario+(($horas-40)*25000);
+                        echo("Su salario es: " .$salario);
+                    }
 
-                if($horas<=40){
-                    $salario=$horas*$valorHora;
-                    echo("Su salario es: " .$salario);
 
-                }else if($horas>40){
-                    $salario=40*$valorHora;
-                    $salario=$salario+(($horas-40)*25000);
-                    echo("Su salario es: " .$salario);
-                }
-            }
-        ?>
+                    ?>
+
+                </p>
+                
+            
+        <?php endif ?>
 
 
     </main>   
